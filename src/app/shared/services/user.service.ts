@@ -1,4 +1,4 @@
-import { DataService } from 'shared/services/data.service';
+import { DataService } from 'shared/services';
 import { Injectable } from '@angular/core';
 
 @Injectable()
