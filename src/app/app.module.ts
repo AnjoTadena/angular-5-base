@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from 'app/app.component';
 import { AuthModule } from 'auth/auth.module';
+import { GlobalErrorService } from 'shared/services/global-error/global-error.service';
 import { SharedModule } from 'shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,15 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     AuthModule
   ],
-  providers: [],
+  providers: [
+    /**
+     * Change default error handler using custom global error handler
+     */
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorService
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
