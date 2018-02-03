@@ -15,12 +15,19 @@
       "es2017",
       "dom"
     ],
+    "baseUrl": "./src",
     "paths": {
       "shared/*": [
         "app/shared/*"
       ],
       "store/*": [
         "app/store/*"
+      ],
+      "common/*": [
+        "app/common/*"
+      ],
+      "auth/*": [
+        "app/auth/*"
       ]
     }
   }

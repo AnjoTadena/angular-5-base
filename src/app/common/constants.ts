@@ -1,0 +1,6 @@
+
+export const ERROR_CODE_NOT_FOUND = 404;
+
+export const ERROR_CODE_BAD_INPUT = 404;
+
+export const ERROR_CODE_UNPROCESSABLE_ENTITY = 422;
