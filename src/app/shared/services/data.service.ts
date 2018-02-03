@@ -39,15 +39,19 @@ export class DataService {
   }
 
   private handleErrorCatch(error: Response) {
-    if (error.status === ERROR_CODE_BAD_INPUT) {
-      return Observable.throw(new BadInputError(error.json()));
-    }
-    if (error.status === ERROR_CODE_NOT_FOUND) {
-      return Observable.throw(new NotFoundError(error.json()));
-    }
-    if (error.status === ERROR_CODE_UNPROCESSABLE_ENTITY) {
-      return Observable.throw(new UnprocessableEntity(error.json()));
-    }
+
+    if (this.isStatusErrorBadInput(error)) { return Observable.throw(new BadInputError(error.json())); }
+
+    if (this.isStatusErrorNotFound(error)) { return Observable.throw(new NotFoundError(error.json())); }
+
+    if (this.isStatusErrorUnprocessableEntity(error)) { return Observable.throw(new UnprocessableEntity(error.json())); }
+
     return Observable.throw(new AppError(error.json()));
   }
+
+  private isStatusErrorBadInput(error: Response) { return error.status === ERROR_CODE_BAD_INPUT; }
+
+  private isStatusErrorNotFound(error: Response) { return error.status === ERROR_CODE_NOT_FOUND; }
+
+  private isStatusErrorUnprocessableEntity(error: Response) { return error.status === ERROR_CODE_NOT_FOUND; }
 }

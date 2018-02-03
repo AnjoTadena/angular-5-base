@@ -18,11 +18,7 @@ export class LoggerService {
    * @param {string} url
    * @param {string} stack
    */
-  public log(error: ErrorLog): void {
-    console.log(error);
-  }
+  public log(error: ErrorLog): void { console.log(error); }
 
-  public error(error: ErrorLog): void {
-    console.error(error);
-  }
+  public error(error: ErrorLog): void { console.error(error); }
 }

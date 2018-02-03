@@ -11,7 +11,7 @@ export class GlobalErrorService implements ErrorHandler {
 
   handleError(error) {
 
-    console.log('GlobalErrorService | error', error);
+    // console.log('GlobalErrorService | error', error);
 
     const loggingService = this.injector.get(LoggerService);
 
@@ -19,7 +19,7 @@ export class GlobalErrorService implements ErrorHandler {
 
     const message = error.message ? error.message : error.toString();
 
-    console.log('GlobalErrorService | location', location);
+    // console.log('GlobalErrorService | location', location);
 
     const url = location instanceof PathLocationStrategy ? location.path() : '';
 
