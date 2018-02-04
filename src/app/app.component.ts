@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'core/services';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  constructor(public http: HttpClient) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     //   email: 'anjo@coderepubliq.com',
     //   password: 'password'
-    this.http.get('http://demo.envogue.global:8080/api/products').subscribe((response) => {
-      console.log(response);
-    });
+    this.userService.getAll().subscribe((response) => { console.log(response); });
   }
 }
