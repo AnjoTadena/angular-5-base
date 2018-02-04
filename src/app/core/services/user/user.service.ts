@@ -6,7 +6,7 @@ import { DataService } from 'shared/services';
 export class UserService extends DataService {
 
   constructor(http: HttpClient) {
-    super('http://demo.envogue.global:8080/api/products', http);
+    super('http://demo.envogue.global:8080/api/users', http);
   }
 
   getUsers() {

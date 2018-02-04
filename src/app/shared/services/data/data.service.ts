@@ -38,7 +38,6 @@ export class DataService {
   }
 
   private handleErrorCatch(error: Response) {
-    console.log(error);
     if (error.status === ERROR_CODE_BAD_INPUT) { return Observable.throw(new BadInputError(error)); }
 
     if (error.status === ERROR_CODE_NOT_FOUND) { return Observable.throw(new NotFoundError(error)); }
