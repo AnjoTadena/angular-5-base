@@ -2,4 +2,3 @@
 
 export * from './deserializable';
 export * from './deserialize';
-export * from './user';
